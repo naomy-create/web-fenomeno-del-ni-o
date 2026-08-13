@@ -285,3 +285,33 @@ footer {
         font-size: 2rem;
     }
 }
+
+
+
+JS:
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Mensaje interactivo en el botón de prevención
+    const btnAlerta = document.getElementById("btn-alerta");
+
+    btnAlerta.addEventListener("click", () => {
+        alert("¡Recuerda mantener siempre lista tu mochila de emergencia de 24 horas!");
+    });
+
+    // 2. Desplazamiento suave (Smooth Scroll) para los enlaces del menú
+    const links = document.querySelectorAll('.navbar a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
